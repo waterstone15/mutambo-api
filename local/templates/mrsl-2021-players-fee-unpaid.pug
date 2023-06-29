@@ -1,0 +1,41 @@
+doctype html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    title
+    style(type='text/css')
+
+  body
+    table(border='0' cellspacing='0' width='100%')
+      tr
+        td(width='450')
+          p Captain(s) of #{team_name},
+          p(style='height: 2px;')
+          p(style='line-height: 160%;'): b Please pay the following OVERDUE players fee.
+          p(style='height: 2px;')
+          p(style='line-height: 160%;') The following is a payment link for your #{team_name} players fee for the #{league_name}, #{season_name} season.
+          p(style='height: 2px;')
+          p(style='background-color: #fafafa; font-weight: bold; padding: 10px 10px 10px 10px; margin: 0px 0px 0px 0px;')
+            a(href=payment_link) Pay Players Fee →
+
+          p(style='height: 2px;')
+          p(style='line-height: 160%;') The players fee is calculated as follows —
+          p(style='line-height: 160%;')
+            b + $25.00 × #{players_single_team} = #{fee_single_team_players}
+            |  for players that registered for #{team_name} and no other team.
+          p(style='line-height: 160%;')
+            b + $12.50 × #{players_multi_team} = #{fee_multi_team_players}
+            |  for players that registered for #{team_name} and at least one other team.
+          p(style='line-height: 160%;')
+            b: | = #{fee_total}
+          p(style='line-height: 160%;')
+            i Note: This includes players who registered for your team at any point during the season, even if they were later removed.
+          p(style='height: 2px;')
+
+          p(style='line-height: 160%;') If you have any questions about your players fee, please email president@mrsl.org, vp@mrsl.org, and hello@mrsl.org.
+          p(style='height: 2px;')
+          p(style='line-height: 160%;'): i This is an automated message. Enjoy your games!
+          p: i – Mutambo Team
+        td
+

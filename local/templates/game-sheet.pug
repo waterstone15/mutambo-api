@@ -1,0 +1,107 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    script(src="https://cdn.tailwindcss.com")
+    script(src="https://kit.fontawesome.com/ef5e879cc8.js", crossorigin)
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap", rel="stylesheet")
+    title Game Sheet - Mutambo
+    style.
+      body {
+        font-size: 14px;
+      }
+      body {
+        font-family: "Roboto", sans-serif !important;
+      }
+      .font-mono {
+        font-family: 'Source Code Pro', monospace !important;
+      }
+  body
+    .flex.w-full
+      .m-4.p-4.w-full.border-2.border-black.rounded-lg
+        .mb-10
+          h1.mb-px.text-lg
+            span.font-black #{sheet.league.val.name}
+            span #{', '}
+            span.font-bold #{sheet.season.val.name}
+          h2.mb-4.text-lg
+            span.font-medium #{sheet.home.val.name}
+            span.font-light #{' '}vs.#{' '}
+            span.font-medium #{sheet.away.val.name}
+          h3.mb-1
+            .inline-flex.justify-center.items-center.w-6
+              i(class="fa-solid fa-fw fa-location-dot")
+            span #{' '}
+            span.font-medium #{sheet.game.val.location_text}
+          h3.mb-1
+            .inline-flex.justify-center.items-center.w-6
+              i(class="fa-solid fa-fw fa-sm fa-clock")
+            span #{' '}
+            span.font-mono.font-semibold.text-sm #{sheet.game.ui.date}
+            span #{' — '}
+            span.font-mono.font-semibold.text-sm #{sheet.game.ui.time}
+            span #{' '}
+            span.font-mono.font-semibold.text-xs #{sheet.game.ui.zone}
+        
+        div.space-x-4.mb-2(class="grid grid-cols-[1fr_1fr]")
+          div.text-center
+            .inline-flex.justify-center.items-center.mb-1
+              h4.font-bold.mr-1 #{sheet.home.val.name}
+              h4.text-sm #{' '}• Home Team
+            div.mb-1
+              each manager in sheet.home.val.managers
+                div: span.inline-flex #{manager.val.full_name}
+          div.text-center
+            .inline-flex.justify-center.items-center.mb-1
+              h4.font-bold.mr-1 #{sheet.away.val.name}
+              h4.text-sm #{' '}• Away Team
+            div.mb-1
+              each manager, index in sheet.away.val.managers
+                div: span.inline-flex #{manager.val.full_name}
+
+
+        div.space-x-4(class="grid grid-cols-[1fr_1fr]")
+          
+          div
+            table.table-auto.border-t.border-l.border-black.w-full
+              thead
+                tr.border-b.border-black
+                  th.w-10.px-2.py-2.text-center.border-r.border-black
+                  th.w-10.px-2.py-2.text-center.border-r.border-black #
+                  th.w-10.px-2.py-2.text-center.border-r.border-black ✓
+                  th.px-2.py-2.text-start.border-r.border-black
+                    span.inline.font-bold Player
+                    span.inline.pl-1.font-normal.text-sm (Full Name)
+              tbody
+                each player, index in sheet.home.val.players
+                  tr.border-b.border-black
+                    - var row = index + 1
+                    td.w-10.px-1.py-2.text-center.border-r.border-black.text-xs= row
+                    td.w-10.px-2.py-2.text-center.border-r.border-black
+                    td.w-10.px-2.py-2.text-center.border-r.border-black
+                    td.px-2.py-2.text-start.border-r.border-black #{player.val.full_name}
+
+          div
+            table.table-auto.border-t.border-l.border-black.w-full
+              thead
+                tr.border-b.border-black
+                  th.w-10.px-2.py-2.text-center.border-r.border-black
+                  th.w-10.px-2.py-2.text-center.border-r.border-black #
+                  th.w-10.px-2.py-2.text-center.border-r.border-black ✓
+                  th.px-2.py-2.text-start.border-r.border-black
+                    span.inline.font-bold Player
+                    span.inline.pl-1.font-normal.text-sm (Full Name)
+              tbody
+                each player, index in sheet.away.val.players
+                  tr.border-b.border-black
+                    - var row = index + 1
+                    td.w-10.px-1.py-2.text-center.border-r.border-black.text-xs= row
+                    td.w-10.px-2.py-2.text-center.border-r.border-black
+                    td.w-10.px-2.py-2.text-center.border-r.border-black
+                    td.px-2.py-2.text-start.border-r.border-black #{player.val.full_name}
+
+
